@@ -1,1 +1,2 @@
-# SugmaGrindset.github-io
+# ohmyfood
+Openclassrooms Project 3

@@ -1,0 +1,21 @@
+@import "./variables";
+@import "./mixins";
+
+.hovered-button {
+  background: linear-gradient(
+    to bottom,
+    lighten($secondary-color, 8%),
+    lighten($primary-color, 8%)
+  );
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  font-family: "Shrikhand";
+  font-weight: 300;
+}
+
+.menu-title {
+  @include flex-box($just-cont: flex-start);
+  width: $img-width;
+}

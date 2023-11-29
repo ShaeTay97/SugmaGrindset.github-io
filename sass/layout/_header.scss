@@ -1,0 +1,39 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+@import "../utils/extension";
+
+.head {
+  @include flex-box($just-cont: center);
+  position: relative;
+  margin: 2vh, 1vw;
+  box-shadow: $shadow;
+  padding: 1% 0 1% 0;
+
+  &__logo {
+    margin: 0;
+    $just-cont: center;
+    $align: center;
+    $img-width: 30%;
+    height: auto;
+    max-width: 50%;
+  }
+
+  &__arrow {
+    position: absolute;
+    left: 20px;
+
+    &__btn {
+      text-decoration: none;
+      color: inherit;
+      cursor: default;
+
+      &:active {
+        color: inherit;
+      }
+      &:hover,
+      &:focus {
+        color: $tertiary-color;
+      }
+    }
+  }
+}

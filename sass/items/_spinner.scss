@@ -1,0 +1,56 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.load-screen {
+  @include flex-box($align: center, $just-cont: center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  transition: opacity 1s, visibility 1s;
+  z-index: 99;
+
+  &__spinner {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+
+    &::after {
+      content: " ";
+      display: block;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border-radius: 50%;
+      border: 6px solid $secondary-color;
+      border-color: $secondary-color transparent $secondary-color transparent;
+      animation: spinner 1.2s linear infinite;
+    }
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+ 
+  animation: fadeOut 1s 1s forwards; 
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,200 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+@import "./buttons";
+.rest-card {
+  @include flex-box($direction: column);
+  box-shadow: $shadow;
+  width: 100%;
+  max-width: 325px;
+  border-radius: $rounded;
+  position: relative;
+
+  &__link {
+    text-decoration: none;
+  }
+  &__pic-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-top-left-radius: $rounded;
+    border-top-right-radius: $rounded;
+
+    &__img {
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__body {
+    width: 87.25%;
+    @include flex-box($just-cont: space-between);
+
+    &__info__txt {
+      color: black;
+      margin: 0;
+      padding: 0;
+
+      &__name {
+        margin: 1em 0 0.25em 0.8em;
+        font-weight: 900;
+      }
+      &__city {
+        margin: 0.25em 0 1em 1em;
+      }
+
+      &__favebox {
+        @extend .favebox;
+      }
+    }
+  }
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+  }
+
+  &__newbtn{
+    @extend .other-button;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+}
+
+.menu-card {
+  @include flex-box($just-cont: space-between);
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: $rounded;
+  box-shadow: $shadow;
+  border: none;
+  background-color: white;
+  width: 100%;
+  max-width: 350px;
+
+  &__name {
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 0.5em;
+  }
+
+  &__info {
+    width: 100%;
+    @include flex-box($just-cont: space-between);
+
+    &__details {
+      margin: 0;
+      font-size: 0.9em;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 80%;
+    }
+
+    &__price {
+      margin: 0;
+      font-size: 0.9em;
+      font-weight: bold;
+      transform: translateX(0);
+    }
+  }
+
+  &__tick {
+    position: absolute;
+    right: 0;
+    background-color: $tertiary-color;
+    height: 100%;
+    width: 75px;
+    @include flex-box;
+    transform: translateX(75px);
+    transform-origin: left center;
+
+    &__circle {
+      background-color: white;
+      padding: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: $tertiary-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__icon {
+        font-size: 0.9em;
+        transform: rotate(0deg);
+        transition: transform 500ms, ease-out 150ms;
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover &__tick {
+    animation: slide-left-box 750ms forwards 1;
+    transform: translateX(0);
+
+    &__circle {
+      &__icon {
+        animation: tickbox 1s;
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  &:hover &__info__price {
+    animation: slide-left-price 750ms forwards 1;
+    transform: translateX(-75px);
+  }
+
+  &:hover &__info__details {
+    animation: shrink-text 750ms forwards 1;
+    width: 60%;
+  }
+}
+@keyframes slide-left-box {
+  from {
+    transform: translateX(75px) ;
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left-price {
+  from {
+    transform: translateX(0px) ;
+  }
+
+  to {
+    transform: translateX(-75px) ;
+  }
+}
+
+@keyframes tickbox{
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes shrink-text {
+  from {
+    width: 80%;
+  }
+
+  to {
+    width: 60%;
+  }
+}

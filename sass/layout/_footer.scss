@@ -1,0 +1,43 @@
+@import "../utils/mixins";
+@import "../utils/variables";
+
+.footer {
+  background-color: darken($bg-color, 18%);
+  padding: 5% 10%;
+
+  &__logo {
+    font-family: "Shrikhand";
+    color: white;
+    font-size: 1.2em;
+    font-weight: 100;
+    padding-bottom: 1em;
+  }
+  &__list {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+
+    &__item {
+      margin-bottom: 0.5em;
+    }
+    &__link {
+      text-decoration: none;
+      color: white;
+      font-family: "Roboto";
+
+      &:hover,
+      :active {
+        color: $secondary-color;
+      }
+    }
+
+    &__icon {
+      margin-right: 0.75em;
+      display: inline-block;
+      width: 10px;
+      i{
+        font-size: 0.9em;
+      }
+    }
+  }
+}

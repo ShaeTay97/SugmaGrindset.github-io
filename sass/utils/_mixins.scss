@@ -1,0 +1,16 @@
+@import "./variables";
+
+@mixin flex-box($direction: row, $just-cont: center, $align: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $just-cont;
+  flex-direction: $direction;
+}
+
+@mixin restaurant-banner($banner-img) {
+  height: 300px;
+  background-image: $banner-img;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

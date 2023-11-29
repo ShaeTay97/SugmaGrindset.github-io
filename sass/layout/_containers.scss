@@ -1,0 +1,75 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+@import "../utils/extension";
+@import "../items/buttons";
+@import "../items/cards";
+
+.locale {
+  @include flex-box;
+  gap: 15px;
+  background-color: lighten($bg-color, 48%);
+
+  &__icon {
+    padding: 2.5vh 0.5vw;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: 0.2s;
+    }
+  }
+  &__name {
+    padding: 2.5vh 0.5vw;
+    font-weight: bold;
+  }
+}
+
+.book {
+  @include flex-box($direction: column);
+  padding: 2em 3em;
+  background-color: lighten($bg-color, 52.5%);
+
+  h2{
+    margin-bottom: 30px;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 15px
+  }
+
+  &__button {
+    @extend .page-button;
+  }
+}
+
+.steps {
+  @include flex-box;
+  flex-wrap: wrap;
+  padding: $sect-pad;
+  background-color: #fff;
+
+  &__title {
+    @extend .menu-title;
+  }
+
+  &__button {
+    @extend .steps-button;
+  }
+}
+
+.restaurants {
+  @include flex-box;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  padding: $sect-pad;
+  background-color: lighten($bg-color, 53%);
+
+  &__title {
+    @extend .menu-title;
+  }
+
+  &__card {
+    @extend .rest-card;
+  }
+}
